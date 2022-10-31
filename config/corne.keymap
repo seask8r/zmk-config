@@ -9,9 +9,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/reset.h>
 
-#define LOWER 1
-#define RAISE 2
-
 #define BT0 BT_SEL 0
 #define BT1 BT_SEL 1
 #define BT2 BT_SEL 2
@@ -42,7 +39,7 @@
                 &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSPC
                 &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
                 &kp LSHFT   &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
-                                                                &kp LGUI    &mo RAISE   &kp SPACE   &kp RET     &mo LOWER   &kp RCTRL
+                                                                &kp LCTRL   &kp LGUI &lt 1 SPACE    &lt 2 RET   &kp RALT    &kp RCTRL
             >;
         };
 
@@ -50,15 +47,15 @@
             bindings = <
                 &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                              &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp BSPC
                 &none       &none       &none       &none       &none       &none                               &kp MINUS   &kp EQUAL   &kp LBKT    &kp RBKT    &kp BSLH    &kp RALT
-                &kp LSHIFT  &sk LALT    &sk LGUI    &sk LCTRL   &none       &none                               &none       &none       &sk RCTRL   &kp RGUI    &kp RALT    &kp RSHIFT
-                                                                &none       &trans      &kp SPACE   &kp RET     &trans      &none
+                &kp LSHIFT  &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &kp RSHFT
+                                                                &trans       &trans      &trans     &trans      &trans      &trans
             >;
         };
 
         raise_layer {
             bindings = <
                 &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                              &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12
-                &none       &none       &none       &none       &none       &none                               &kp BACK    &kp VOL_DN  &kp VOL_UP  &kp FWD     &kp PAUSE   &kp HOME
+                &kp BACK    &kp VOL_DN  &kp VOL_UP  &kp FWD     &kp PAUSE   &kp HOME                            &kp LEFT    &kp DOWN    &kp UP      &kp DOWN    &none       &none
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
                                                                 &suspend    &trans       &none       &none      &trans      &suspend
             >;
