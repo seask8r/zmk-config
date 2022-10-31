@@ -21,11 +21,26 @@
 #define VOL_DN C_VOL_DN
 #define VOL_UP C_VOL_UP
 
+#define BRI_UP C_BRI_UP
+#define BRI_DN C_BRI_DN
+
 / {
+
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk, behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            global-quick-tap;
+            bindings = <&kp>, <&kp>;
+        };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        tri_layer {
+        settings_layer {
             if-layers = <1 2>;
             then-layer = <3>;
         };
@@ -38,35 +53,35 @@
             bindings = <
                 &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSPC
                 &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
-                &kp LSHFT   &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHFT
-                                                                &kp LCTRL   &kp LGUI &lt 1 SPACE    &lt 2 RET   &kp RALT    &kp RCTRL
+                &kp LSHIFT  &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHIFT
+                                                                &kp LCTRL   &kp LGUI    &lt 1 SPACE &lt 2 RET   &kp BSPC    &RALT
             >;
         };
 
-        lower_layer {
+        number_layer {
             bindings = <
                 &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                              &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp BSPC
                 &none       &none       &none       &none       &none       &none                               &kp MINUS   &kp EQUAL   &kp LBKT    &kp RBKT    &kp BSLH    &kp RALT
-                &kp LSHIFT  &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &kp RSHFT
-                                                                &trans       &trans      &trans     &trans      &trans      &trans
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &to 3
+                                                                &trans      &trans      &trans      &trans      &trans      &trans
             >;
         };
 
-        raise_layer {
+        navigation_layer {
             bindings = <
                 &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                              &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12
                 &kp BACK    &kp VOL_DN  &kp VOL_UP  &kp FWD     &kp PAUSE   &kp HOME                            &kp LEFT    &kp DOWN    &kp UP      &kp DOWN    &none       &none
-                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                                                                &suspend    &trans       &none       &none      &trans      &suspend
+                &none       &kp BRI_DN  &kp BRI_UP  &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                                                                &trans      &trans      &trans      &trans      &trans      &trans
             >;
         };
 
-        tri_layer {
+        settings_layer {
             bindings = <
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &bt BT_CLR
                 &none       &bt BT0     &bt BT1     &bt BT2     &bt BT3     &bt BT4                             &none       &none       &none       &none       &none       &none
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                                                                &none       &trans       &none       &none      &trans      &none
+                                                                &suspend    &trans       &none       &none      &trans      &suspend
             >;
         };
     };
