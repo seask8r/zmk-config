@@ -28,7 +28,7 @@
 
     behaviors {
         hm: homerow_mods {
-            compatible = "zmk, behavior-hold-tap";
+            compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             flavor = "tap-preferred";
@@ -37,6 +37,7 @@
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+    };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -54,7 +55,7 @@
                 &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &kp BSPC
                 &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
                 &kp LSHIFT  &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHIFT
-                                                                &kp LCTRL   &kp LGUI    &lt 1 SPACE &lt 2 RET   &kp BSPC    &RALT
+                                                                &kp LCTRL   &kp LGUI    &lt 1 SPACE &lt 2 RET   &kp BSPC    &kp RALT
             >;
         };
 
