@@ -55,7 +55,7 @@
                 &kp TAB     &kp Q       &kp W       &kp F       &kp P       &kp G                               &kp J       &kp L       &kp U       &kp Y       &kp SEMI    &kp BSPC
                 &kp ESC     &kp A       &kp R       &kp S       &kp T       &kp D                               &kp H       &kp N       &kp E       &kp I       &kp O       &kp SQT
                 &kp LSHIFT  &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp K       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHIFT
-                                                                &kp LCTRL   &kp LGUI    &lt 1 SPACE &lt 2 RET   &kp BSPC    &kp RALT
+                                                                &kp LCTRL   &kp LGUI    &lt 2 SPACE &lt 1 RET   &kp BSPC    &kp RALT
             >;
         };
 
@@ -63,7 +63,7 @@
             bindings = <
                 &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                              &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp BSPC
                 &none       &none       &none       &none       &none       &none                               &kp MINUS   &kp EQUAL   &kp LBKT    &kp RBKT    &kp BSLH    &kp RALT
-                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &to 3
+                &kp LSHIFT  &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &kp RSHIFT
                                                                 &trans      &trans      &trans      &trans      &trans      &trans
             >;
         };
@@ -72,7 +72,7 @@
             bindings = <
                 &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                              &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12
                 &kp BACK    &kp VOL_DN  &kp VOL_UP  &kp FWD     &kp PAUSE   &kp HOME                            &kp LEFT    &kp DOWN    &kp UP      &kp DOWN    &none       &none
-                &none       &kp BRI_DN  &kp BRI_UP  &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                &suspend    &kp BRI_DN  &kp BRI_UP  &none       &none       &none                               &none       &none       &none       &none       &none       &suspend
                                                                 &trans      &trans      &trans      &trans      &trans      &trans
             >;
         };
@@ -82,7 +82,7 @@
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &bt BT_CLR
                 &none       &bt BT0     &bt BT1     &bt BT2     &bt BT3     &bt BT4                             &none       &none       &none       &none       &none       &none
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                                                                &suspend    &trans       &none       &none      &trans      &suspend
+                                                                &trans      &trans      &trans      &trans      &trans      &trans
             >;
         };
 
