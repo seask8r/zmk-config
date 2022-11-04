@@ -82,7 +82,7 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         settings_layer {
-            if-layers = <NUM SYM>;
+            if-layers = <NUM MOD>;
             then-layer = <NAV>;
         };
     };
@@ -95,7 +95,7 @@
                 &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &mo SET
                 &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
                 &sl SYM     &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &none
-                                                                &sl NUM     &kp LSHIFT  &kp RET     &kp BSPC    &kp SPACE   &sl MOD
+                                                                &kp RET     &kp LSHIFT  &sl NUM     &sl MOD     &kp SPACE   &kp BSPC
             >;
         };
 
@@ -104,7 +104,7 @@
                 &none       &none       &none       &none       &none       &none                               &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT    &trans
                 &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &none                               &kp MINUS   &kp N4      &kp N5      &kp N6      &kp EQUAL   &none
                 &trans      &none       &none       &none       &none       &none                               &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH    &none
-                                                                &trans      &none       &none       &trans      &kp N0      &none
+                                                                &none       &none       &trans      &trans      &kp N0      &trans
             >;
         };
 
@@ -113,7 +113,7 @@
                 &none       &none       &none       &none       &none       &none                               &kp LBRC    &kp AMPS    &kp STAR    &kp LPAR    &kp RBRC    &trans
                 &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &none                               &kp UNDER   &kp DLLR    &kp PRCNT   &kp CARET   &kp PLUS    &none
                 &trans      &none       &none       &none       &none       &none                               &kp TILDE   &kp EXCL    &kp AT      &kp HASH    &kp PIPE    &none
-                                                                &trans      &none       &none       &none       &kp RPAR    &none
+                                                                &none       &none       &trans      &trans      &kp RPAR    &trans
             >;
         };
 
@@ -122,7 +122,7 @@
                 &kp K_MUTE  &kp VOL_DN  &kp VOL_UP  &kp C_PP    &kp PREV    &kp NEXT                            &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_N4   &kp KP_N5   &trans
                 &none       &kp LALT    &kp LGUI    &kp LCTRL   &sk LSHIFT  &none                               &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp PG_DN   &kp PG_UP
                 &trans      &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                                                                &trans      &none       &trans      &trans      &trans      &none
+                                                                &none       &none       &trans      &trans      &none       &none
             >;
         };
 
@@ -131,7 +131,7 @@
                 &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                              &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12
                 &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &sk MEH                             &sk HYPR    &sk RSHIFT  &sk RCTRL   &sk RGUI    &sk RALT    &none       
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                                                                &trans      &none       &none       &none       &none       &trans
+                                                                &none       &none       &trans      &trans      &none       &none
             >;
         };
 
