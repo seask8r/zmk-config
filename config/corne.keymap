@@ -50,14 +50,16 @@
 / {
 
     behaviors {
-        sel: layer_select {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LAYER_SELECT";
-            #binding-cells = <0>;
+        mo_tog: behavior_mo_tog{
+            compatible = "zmk,behavior-hold-tap";
+            label = "mo_tog";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&tog NAV>, <&mo SET>;
+            bindings = <&mo>, <&tog>;
         };
     };
+
     combos {
         compatible = "zmk,combos";
 
@@ -88,20 +90,12 @@
 
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        settings_layer {
-            if-layers = <NUM MOD>;
-            then-layer = <NAV>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         qwerty_layer {
             bindings = <
-                &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &sel
+                &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &mo_tog SET NAV
                 &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
                 &mo SYM     &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &none
                                                                 &kp RET     &kp LSHIFT  &mo NUM     &sl MOD     &kp SPACE   &kp BSPC
