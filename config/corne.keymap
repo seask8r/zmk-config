@@ -30,6 +30,11 @@
 #define MEH     LC(LS(LALT))
 #define SRC     LG(SPACE)
 
+#define DIV     KP_DIVIDE
+#define EQ      KP_EQUAL
+#define MUL     KP_MULTIPLY
+#define SUB     KP_MINUS
+
 #define DEF 0
 #define NUM 1
 #define SYM 2
@@ -37,7 +42,10 @@
 #define MOD 4
 #define SET 5
 #define SUS 6
-#define CRN 7
+#define GAM 7
+#define GAM_1 8
+#define GAM_2 9
+#define CRN 10
 
 / {
 
@@ -56,11 +64,19 @@
             bindings = <&tog CRN>;
         };
 
+        combo_gaming_layer {
+            timeout-ms = <50>;
+            key-positions = <12 23>;
+            bindings = <&tog GAM>;
+        };
+
         combo_bt_clear {
             timeout-ms = <50>;
             key-positions = <0 1>;
+            layers = <SET>;
             bindings = <&bt BT_CLR>;
         };
+
     };
 
     conditional_layers {
@@ -78,36 +94,35 @@
             bindings = <
                 &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &mo SET
                 &kp ESC     &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
-                &kp SRC     &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RET
-                                                                &mo SYM     &sl MOD     &sk LSHIFT  &kp SPACE   &kp BSPC    &mo NUM
+                &sl SYM     &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &none
+                                                                &sl NUM     &kp LSHIFT  &kp RET     &kp BSPC    &kp SPACE   &sl MOD
             >;
         };
 
         number_layer {
             bindings = <
-                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                &trans      &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                              &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &none
-                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &trans
-                                                                &trans      &trans      &trans      &trans      &trans      &trans
+                &none       &none       &none       &none       &none       &none                               &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT    &trans
+                &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &none                               &kp MINUS   &kp N4      &kp N5      &kp N6      &kp EQUAL   &none
+                &trans      &none       &none       &none       &none       &none                               &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH    &none
+                                                                &trans      &none       &none       &trans      &kp N0      &none
             >;
         };
 
         symbol_layer {
             bindings = <
-                &none       &kp LBRC    &kp RBRC    &kp LT      &kp GT      &none                               &none       &kp LPAR    &kp RPAR    &kp LBKT    &kp RBKT    &none
-                &trans      &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT                           &kp CARET   &kp AMPS    &kp STAR    &kp KP_MIN  &kp KP_EQ   &none
-                &none       &kp BSLH    &kp PIPE    &kp GRAVE   &kp TILDE   &none                               &none       &kp LBRC    &kp RBRC    &kp UNDER   &kp KP_PL   &none
-                                                                &trans      &trans      &trans      &trans      &trans      &trans
+                &none       &none       &none       &none       &none       &none                               &kp LBRC    &kp AMPS    &kp STAR    &kp LPAR    &kp RBRC    &trans
+                &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &none                               &kp UNDER   &kp DLLR    &kp PRCNT   &kp CARET   &kp PLUS    &none
+                &trans      &none       &none       &none       &none       &none                               &kp TILDE   &kp EXCL    &kp AT      &kp HASH    &kp PIPE    &none
+                                                                &trans      &none       &none       &none       &kp RPAR    &none
             >;
         };
 
-
         navigation_layer {
             bindings = <
-                &kp K_MUTE  &kp VOL_DN  &kp VOL_UP  &kp C_PP    &kp PREV    &kp NEXT                            &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &none       &none
-                &trans      &kp BRI_DN  &kp BRI_UP  &none       &none       &none                               &kp H       &kp J       &kp K       &kp L       &kp PG_DN   &kp PG_UP
-                &kp LG(R)   &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)                          &kp LG(H)   &kp LG(J)   &kp LG(K)   &kp LG(L)   &kp HOME    &kp END
-                                                                &trans      &trans      &trans      &trans      &trans      &trans
+                &kp K_MUTE  &kp VOL_DN  &kp VOL_UP  &kp C_PP    &kp PREV    &kp NEXT                            &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_N4   &kp KP_N5   &trans
+                &none       &kp LALT    &kp LGUI    &kp LCTRL   &sk LSHIFT  &none                               &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp PG_DN   &kp PG_UP
+                &trans      &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                                                                &trans      &none       &trans      &trans      &trans      &none
             >;
         };
 
@@ -116,7 +131,7 @@
                 &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6                              &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12
                 &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &sk MEH                             &sk HYPR    &sk RSHIFT  &sk RCTRL   &sk RGUI    &sk RALT    &none       
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                                                                &none       &trans      &none       &none       &none       &none
+                                                                &trans      &none       &none       &none       &none       &trans
             >;
         };
 
@@ -125,16 +140,43 @@
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
                 &none       &bt BT0     &bt BT1     &bt BT2     &bt BT3     &bt BT4                             &none       &none       &none       &none       &none       &none
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                                                                &none       &none      &none        &none       &none       &none
+                                                                &none       &none       &none       &none       &none       &none
             >;
         };
 
         suspend_layer {
             bindings = <
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                &to DEF     &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                &suspend    &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &suspend
-                                                                &none       &none      &none        &none       &none       &none
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                                                                &suspend    &none       &none       &none       &none       &suspend
+            >;
+        };
+
+        gaming_layer {
+            bindings = <
+                &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &kp ESC
+                &kp LCTRL   &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp RCTRL
+                &kp LSHIFT  &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHIFT
+                                                                &kp SPACE   &mo GAM_1   &mo GAM_2   &kp RET     &kp SPACE   &kp BSPC
+            >;
+        };
+
+        gaming_one_layer {
+            bindings = <
+                &kp TAB     &kp N1      &kp W       &kp N2      &kp N3      &kp N4                              &kp Y       &kp U       &kp I       &kp O       &kp P       &kp ESC
+                &kp LSHIFT  &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp RCTRL
+                &kp LCTRL   &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHIFT
+                                                                &kp SPACE   &mo GAM_1   &mo GAM_2   &kp RET     &kp SPACE   &kp BSPC
+            >;
+        };
+
+        gaming_two_layer {
+            bindings = <
+                &kp TAB     &kp N5      &kp W       &kp N6      &kp N7      &kp N8                              &kp Y       &kp U       &kp I       &kp O       &kp P       &kp ESC
+                &kp LCTRL   &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp RCTRL
+                &kp LSHIFT  &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHIFT
+                                                                &kp SPACE   &mo GAM_1   &mo GAM_2   &kp RET     &kp SPACE   &kp BSPC
             >;
         };
 
