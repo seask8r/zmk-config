@@ -22,23 +22,22 @@
 
 #define NUM 1
 #define SYM 2
-#define NAV 3
-#define SET 4
-#define SUS 5
+#define SET 3
+#define SUS 4
 
 / {
 
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS"
+            label = "HOMEROW_MODS";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             global-quick-tap;
             bindings = <&kp>, <&sk>;
-        }
+        };
     };
 
     combos {
@@ -65,18 +64,18 @@
         base_layer {
             bindings = <
                 &kp TAB         &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P           &mo SET
-                &kp ESC         &hm LALT A  &hm LGUI S  &hm LCTRL D &kp F       &kp G                               &kp H       &kp J       &hm RCTRL K &hm RGUI L  &hm RALT SEMI   &kp SQT
+                &none           &hm LALT A  &hm LGUI S  &hm LCTRL D &kp F       &kp G                               &kp H       &kp J       &hm RCTRL K &hm RGUI L  &hm RALT SEMI   &kp SQT
                 &none           &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &none
-                                                                    &kp LSHIFT  &kp BSPC    &mo NUM     &mo SYM     &kp SPACE   &kp RSHIFT
+                                                                    &kp LSHIFT  &kp BSPC    &lt NUM ESC &lt SYM RET &kp SPACE   &kp RSHIFT
             >;
         };
 
         number_layer {
             bindings = <
-                &none           &none           &kp UP          &none           &none       &none                               &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT        &none
-                &none           &hm LALT LEFT   &hm LGUI DOWN   &hm LCTRL RIGHT &none       &none                               &kp MINUS   &kp N4      &hm N5      &kp N6      &kp EQUAL       &none
-                &none           &none           &none           &none           &none       &none                               &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH        &none
-                                                                                &kp LSHIFT  &none       &none       &none       &kp N0      &none
+                &none       &none         &kp UP        &none           &none       &none                               &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT        &none
+                &none       &hm LALT LEFT &hm LGUI DOWN &hm LCTRL RIGHT &none       &none                               &kp MINUS   &kp N4      &kp N5      &kp N6      &kp EQUAL       &none
+                &none       &none         &none         &none           &none       &none                               &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH        &none
+                                                                        &kp LSHIFT  &none       &trans       &trans     &kp N0      &none
             >;
         };
 
@@ -104,15 +103,6 @@
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
                                                                 &suspend    &none       &none       &none       &none       &suspend
-            >;
-        };
-
-        corne_layer {
-            bindings = <
-                &kp TAB     &kp Q       &kp W       &kp F       &kp P       &kp G                               &kp J       &kp L       &kp U       &kp Y       &kp SEMI    &none
-                &kp ESC     &kp A       &kp R       &kp S       &kp T       &kp D                               &kp H       &kp N       &kp E       &kp I       &kp O       &kp SQT
-                &kp SRC     &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp K       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RET
-                                                                &none       &sl MOD     &sk LSHIFT  &kp SPACE   &kp BSPC    &none
             >;
         };
 
