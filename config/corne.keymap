@@ -20,10 +20,11 @@
 #define VOL_DN  C_VOL_DN
 #define VOL_UP  C_VOL_UP
 
-#define NUM 1
-#define SYM 2
-#define SET 3
-#define PRO 4
+#define MOD 1
+#define NUM 2
+#define SYM 3
+#define SET 4
+#define PRO 5
 
 / {
 
@@ -49,6 +50,12 @@
             bindings = <&tog PRO>;
         };
 
+        combo_modifier_layer {
+            timeout-ms = <50>;
+            key-positions = <36 41>;
+            bindings = <&tog MOD>;
+        };
+
         combo_bt_clear {
             timeout-ms = <50>;
             key-positions = <0 1>;
@@ -64,8 +71,17 @@
         base_layer {
             bindings = <
                 &kp TAB         &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P           &mo SET
-                &none           &hm LALT A  &hm LGUI S  &hm LCTRL D &kp F       &kp G                               &kp H       &kp J       &hm RCTRL K &hm RGUI L  &hm RALT SEMI   &kp SQT
+                &none           &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI        &kp SQT
                 &none           &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &none
+                                                                    &kp LSHIFT  &kp BSPC    &lt NUM ESC &lt SYM RET &kp SPACE   &kp RSHIFT
+            >;
+        };
+
+        modifier_layer {
+            bindings = <
+                &kp TAB         &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P           &mo SET
+                &none           &hm LALT A  &hm LGUI S  &hm LCTRL D &kp F       &kp G                               &kp H       &kp J       &hm RCTRL K &hm RGUI L  &hm RALT SEMI   &kp SQT
+                &none           &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &to 0
                                                                     &kp LSHIFT  &kp BSPC    &lt NUM ESC &lt SYM RET &kp SPACE   &kp RSHIFT
             >;
         };
@@ -101,7 +117,7 @@
             bindings = <
                 &kp TAB         &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P           &mo SET
                 &none           &kp A       &kp S       &kp LBKT    &kp RBKT    &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI        &kp SQT
-                &kp LSHIFT      &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &kp RSHIFT
+                &none           &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &to 0
                                                                     &kp LALT    &kp LGUI    &kp LCTRL    &kp RCTRL  &kp RGUI    &kp RALT
             >;
         };
