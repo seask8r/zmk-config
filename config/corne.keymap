@@ -44,7 +44,7 @@
         modifier_layer {
             bindings = <
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                &kp PG_UP   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT   &kp PG_DN                           &none       &kp RSHIFT  &kp RCTRL   &kp RGUI    &kp RALT    &none
+                &kp PG_UP   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT   &kp PG_DN                           &none       &sk RSHIFT  &sk RCTRL   &sk RGUI    &sk RALT    &none
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
                                                                 &kp CAPS    &kp DEL     &none      &trans       &none       &none
             >;
@@ -53,7 +53,7 @@
         number_layer {
             bindings = <
                 &none       &none       &none       &none       &none       &none                               &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT    &none
-                &none       &kp LALT    &kp LGUI    &kp LCTR    &kp LSHIFT  &none                               &kp MINUS   &kp N4      &kp N5      &kp N6      &kp EQUAL   &none
+                &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &none                               &kp MINUS   &kp N4      &kp N5      &kp N6      &kp EQUAL   &none
                 &none       &none       &none       &none       &none       &none                               &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH    &none
                                                                 &none       &none       &trans       &none      &kp N0      &kp DOT
             >;
@@ -61,7 +61,7 @@
 
         settings_layer {
             bindings = <
-                &bt BTO     &bt BT1     &bt BT2     &bt BT3     &bt BT4     &bt BT5                             &none       &none       &none       &none       &none       &trans
+                &bt BT0     &bt BT1     &bt BT2     &bt BT3     &bt BT4     &bt BT5                             &none       &none       &none       &none       &none       &trans
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &bt BT_CLR
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
                                                                 &none       &none       &none       &none       &none       &none
@@ -73,7 +73,7 @@
                 &kp TAB         &kp Q           &kp W       &kp E       &kp R           &kp T                           &to 0   &to 0   &to 0   &to 0   &to 0   &to 0
                 &kp LG(LBKT)    &kp LS(LBKT)    &kp LBKT    &kp RBKT    &kp LS(RBKT)    &kp LG(RBKT)                    &to 0   &to 0   &to 0   &to 0   &to 0   &to 0
                 &kp LSHIFT      &kp Z           &kp X       &kp C       &kp V           &kp B                           &to 0   &to 0   &to 0   &to 0   &to 0   &to 0
-                                                                        &kp LALT        &kp LGUI    &kp LG(z)   &to 0   &to 0   &to 0
+                                                                        &kp LALT        &kp LGUI    &kp LG(Z)   &to 0   &to 0   &to 0
             >;
         };
 
