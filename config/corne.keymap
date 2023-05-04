@@ -68,14 +68,5 @@
             >;
         };
 
-        procreate_layer {
-            bindings = <
-                &kp TAB         &kp Q           &kp W       &kp E       &kp R           &kp T                           &to 0   &to 0   &to 0   &to 0   &to 0   &to 0
-                &kp LG(LBKT)    &kp LS(LBKT)    &kp LBKT    &kp RBKT    &kp LS(RBKT)    &kp LG(RBKT)                    &to 0   &to 0   &to 0   &to 0   &to 0   &to 0
-                &kp LSHIFT      &kp Z           &kp X       &kp C       &kp V           &kp B                           &to 0   &to 0   &to 0   &to 0   &to 0   &to 0
-                                                                        &kp LALT        &kp LGUI    &kp LG(Z)   &to 0   &to 0   &to 0
-            >;
-        };
-
     };
 };
