@@ -29,6 +29,14 @@
 
     };
 
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -41,12 +49,12 @@
             >;
         };
 
-        modifier_layer {
+        arrow_layer {
             bindings = <
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
                 &kp PG_UP   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT   &kp PG_DN                           &none       &sk RSHIFT  &sk RCTRL   &sk RGUI    &sk RALT    &none
                 &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
-                                                                &kp CAPS    &kp DEL     &none      &trans       &none       &none
+                                                                &kp CAPS    &kp DEL     &trans      &trans      &none       &none
             >;
         };
 
@@ -55,7 +63,16 @@
                 &none       &none       &none       &none       &none       &none                               &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT    &none
                 &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &none                               &kp MINUS   &kp N4      &kp N5      &kp N6      &kp EQUAL   &none
                 &none       &none       &none       &none       &none       &none                               &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH    &none
-                                                                &none       &none       &trans       &none      &kp N0      &kp DOT
+                                                                &none       &none       &trans       &trans     &kp N0      &kp DOT
+            >;
+        };
+
+        movement_layer {
+            bindings = <
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &none                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &none
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                                                                &none       &none       &trans       &trans     &none       &none 
             >;
         };
 
