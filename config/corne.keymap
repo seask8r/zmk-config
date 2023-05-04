@@ -14,55 +14,27 @@
 #define BT2 BT_SEL 2
 #define BT3 BT_SEL 3
 #define BT4 BT_SEL 4
-
-#define NEXT    C_NEXT
-#define PREV    C_PREV
-#define VOL_DN  C_VOL_DN
-#define VOL_UP  C_VOL_UP
-
-#define MOD 1
-#define NUM 2
-#define SYM 3
-#define SET 4
-#define PRO 5
+#define BT5 BT_SEL 5
 
 / {
-
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <125>;
-            quick-tap-ms = <250>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
-        };
-    };
 
     combos {
         compatible = "zmk,combos";
 
         combo_procreate_layer {
             timeout-ms = <50>;
-            key-positions = <0 11>;
-            bindings = <&tog PRO>;
+            key-positions = <0 12>;
+            bindings = <&tog 4>;
         };
 
-        combo_modifier_layer {
-            timeout-ms = <50>;
-            key-positions = <36 41>;
-            bindings = <&tog MOD>;
-        };
+    };
 
-        combo_bt_clear {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            layers = <SET>;
-            bindings = <&bt BT_CLR>;
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
-
     };
 
     keymap {
@@ -70,55 +42,46 @@
 
         base_layer {
             bindings = <
-                &kp TAB         &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P           &mo SET
-                &none           &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI        &kp SQT
-                &none           &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &none
-                                                                    &kp LSHIFT  &kp BSPC    &lt NUM ESC &lt SYM RET &kp SPACE   &kp RSHIFT
+                &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &mo 4
+                &none       &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
+                &none       &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &none
+                                                                &kp LSHIFT  &kp BSPC    &lt 2 ESC   &lt 1 RET   &kp SPACE   &kp RSHIFT 
             >;
         };
 
-        modifier_layer {
+        arrow_layer {
             bindings = <
-                &kp TAB         &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P           &mo SET
-                &none           &hm LALT A  &hm LGUI S  &hm LCTRL D &kp F       &kp G                               &kp H       &kp J       &hm RCTRL K &hm RGUI L  &hm RALT SEMI   &kp SQT
-                &none           &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &to 0
-                                                                    &kp LSHIFT  &kp BSPC    &lt NUM ESC &lt SYM RET &kp SPACE   &kp RSHIFT
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                &kp PG_UP   &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT   &kp PG_DN                           &none       &sk RSHIFT  &sk RCTRL   &sk RGUI    &sk RALT    &none
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                                                                &kp CAPS    &kp DEL     &trans      &trans      &none       &none
             >;
         };
 
         number_layer {
             bindings = <
-                &none       &none         &kp UP        &none           &none       &none                               &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT        &none
-                &none       &hm LALT LEFT &hm LGUI DOWN &hm LCTRL RIGHT &none       &none                               &kp MINUS   &kp N4      &kp N5      &kp N6      &kp EQUAL       &none
-                &none       &none         &none         &none           &none       &none                               &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH        &none
-                                                                        &kp LSHIFT  &none       &trans       &trans     &kp N0      &kp RSHIFT
+                &none       &none       &none       &none       &none       &none                               &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT    &none
+                &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &none                               &kp MINUS   &kp N4      &kp N5      &kp N6      &kp EQUAL   &none
+                &none       &none       &none       &none       &none       &none                               &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH    &none
+                                                                &none       &none       &trans       &trans     &kp N0      &kp DOT
             >;
         };
 
-        symbol_layer {
+        movement_layer {
             bindings = <
-                &kp F1          &kp F2      &kp F3      &kp F4          &kp F5      &kp F6                              &kp LBRC    &kp AMPS    &kp STAR    &kp LPAR    &kp RBRC        &none
-                &kp F7          &hm LALT F8 &hm LGUI F9 &hm LCTRL F10   &kp F11     &kp F12                             &kp UNDER   &kp DLLR    &kp PRCNT   &kp CARET   &kp PLUS        &none
-                &none           &none       &none       &none           &none       &none                               &kp TILDE   &kp EXCL    &kp AT      &kp HASH    &kp PIPE        &none
-                                                                        &kp LSHIFT  &kp RPAR    &none       &none       &none       &kp RSHIFT
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                &none       &sk LALT    &sk LGUI    &sk LCTRL   &sk LSHIFT  &none                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &none
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
+                                                                &none       &none       &trans       &trans     &none       &none 
             >;
         };
 
         settings_layer {
             bindings = <
-                &kp K_MUTE  &kp VOL_DN  &kp VOL_UP  &kp C_PP    &kp PREV    &kp NEXT                            &none       &none       &none       &none       &none               &none                               
-                &none       &bt BT0     &bt BT1     &bt BT2     &bt BT3     &bt BT4                             &none       &none       &none       &none       &none               &none
-                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none               &none
+                &bt BT0     &bt BT1     &bt BT2     &bt BT3     &bt BT4     &bt BT5                             &none       &none       &none       &none       &none       &trans
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &bt BT_CLR
+                &none       &none       &none       &none       &none       &none                               &none       &none       &none       &none       &none       &none
                                                                 &none       &none       &none       &none       &none       &none
-            >;
-        };
-
-        procreate_layer {
-            bindings = <
-                &kp TAB         &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P           &mo SET
-                &none           &kp A       &kp S       &kp LBKT    &kp RBKT    &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI        &kp SQT
-                &none           &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH        &to 0
-                                                                    &kp LALT    &kp LGUI    &kp LCTRL    &kp RCTRL  &kp RGUI    &kp RALT
             >;
         };
 
